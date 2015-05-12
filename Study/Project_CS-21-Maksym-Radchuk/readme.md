@@ -6,7 +6,7 @@ Author members: Radchuk Maksym
 
 — Academic Group: CS-21
 
-semester 4
+Semester 4
 
 — University: Ternopil Ivan Pul’uj National Technical University
 
