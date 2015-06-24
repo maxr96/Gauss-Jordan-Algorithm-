@@ -1,35 +1,31 @@
 #include <iostream>
 #include <iomanip>
 #include <stdlib.h>
-#include <Windows.h>
+#include <string.h>
 #include <fstream>
-#include "Jordan.h"
-
+#include <Windows.h>
 using namespace std;
+class File{
+      protected:
+          int NEQ, N1;
+          float **A;    
+      public:
+             virtual void fromFile() = 0;
+             virtual void inFile() = 0;
+             };
+             
+class Jordan : public File{
+    public:
+        virtual void setJordan();        
+        virtual void doCalculate();
+};
 
- Jordan::Jordan()
-  {
-    NEQ=1;
-    N1=1;
-    A=new float *[NEQ];
-    for (int i = 0; i<NEQ; i++){
-          A[i] = new float [N1];}
-      for (int i=0;i<NEQ;i++) {
-         for(int j=0;j<N1;j++)
-             { 
-                 A[i][j]=0;
-             }
-             }
-  }
- 
- Jordan::~Jordan()
- {
-  for (int count = 0; count < NEQ; count++) {   
-              delete [] A[count]; 
- }
- delete [] A;
-}
- void Jordan::setJordan()
+class Object1: public Jordan {
+public:
+	void fromFile();
+    void inFile();
+};
+  void Jordan::setJordan()
    {
         cout<<"Ââåä³òü ê³ëüê³ñòü ð³âíÿíü : "; 
         cin>>NEQ;
@@ -45,28 +41,6 @@ using namespace std;
             cin>>A[i][j];
            }
    }
-   void Jordan::fromFile(){
-        ifstream in("input.txt");
-    if (in == 0)
-    {
-        cout << "Ïîìèëêà! Ôàéë íå çíàäåíî!" << endl;
-    }
-    in >> NEQ;
-    N1=NEQ+1;
-    A = new float *[NEQ];
-    for (int i = 0; i < NEQ; i++)
-    {
-        A[i] = new float [N1];
-    }
-
-    for (int i = 0; i < NEQ; i++)
-    {
-        for (int j = 0; j < N1; j++)
-        {
-            in >> A[i][j];
-        }
-    }
-        }
  void  Jordan::doCalculate()
  {
    float D,D1;
@@ -74,7 +48,7 @@ using namespace std;
       {
          if(A[N][N]==0)
                    {
-                         cout<<endl<<"*** ÍÓËÜÎÂÈÉ ÅËÅÌÅÍÒ ÍÀ Ä²ÀÃÎÍÀË² ";
+                       cout<<endl<<"*** ÍÓËÜÎÂÈÉ ÅËÅÌÅÍÒ ÍÀ Ä²ÀÃÎÍÀË² ";
                          cout<<N<<" Ï²Ä ×ÀÑ ÂÈÊÎÍÀÍÍß***"<<endl;
                          system("pause");
                          exit(0);
@@ -104,4 +78,129 @@ using namespace std;
         for(int j=N1-1;j<N1;j++){
           cout<<setprecision(2)<<setw(5)<<"x"<<i+1<<"="<<A[i][j];}
              cout<<endl;}
+}
+void Object1::fromFile(){
+        ifstream in("input.txt");
+    if (in == 0)
+    {
+        cout << "Ïîìèëêà! Ôàéë íå çíàäåíî!" << endl;
+    }
+    in >> NEQ;
+    N1=NEQ+1;
+    A = new float *[NEQ];
+    for (int i = 0; i < NEQ; i++)
+    {
+        A[i] = new float [N1];
+    }
+
+    for (int i = 0; i < NEQ; i++)
+    {
+        for (int j = 0; j < N1; j++)
+        {
+            in >> A[i][j];
+        }
+    }
+        in.close();}
+void Object1::inFile(){
+           ofstream fout;
+           fout.open("result.txt");
+            for(int i=0;i<NEQ;i++){
+        for(int j=N1-1;j<N1;j++){
+          fout<<setprecision(2)<<setw(5)<<"x"<<i+1<<"="<<A[i][j];}
+             fout<<endl;}
+             fout.close();}
+
+class Object2: public Jordan  {
+public:
+	void fromFile();
+    void inFile();
+};
+  
+void Object2::fromFile(){
+        ifstream in("input2.txt");
+    if (in == 0)
+    {
+        cout << "Ïîìèëêà! Ôàéë íå çíàäåíî!" << endl;
+    }
+    in >> NEQ;
+    N1=NEQ+1;
+    A = new float *[NEQ];
+    for (int i = 0; i < NEQ; i++)
+    {
+        A[i] = new float [N1];
+    }
+
+    for (int i = 0; i < NEQ; i++)
+    {
+        for (int j = 0; j < N1; j++)
+        {
+            in >> A[i][j];
+        }
+    }
+        in.close();}
+void Object2::inFile(){
+           ofstream fout;
+           fout.open("result2.txt");
+            for(int i=0;i<NEQ;i++){
+        for(int j=N1-1;j<N1;j++){
+          fout<<setprecision(2)<<setw(5)<<"x"<<i+1<<"="<<A[i][j];}
+             fout<<endl;}
+             fout.close();}
+
+class ObjectFactory {
+public:
+	virtual Jordan *createJordan(char *) = 0;
+};
+
+class Factory: public ObjectFactory {
+public:
+	Jordan *createJordan(char *type) {
+		if(strcmp(type,"Object2") == 0) {
+ 			return new Object2;
+		}
+		else if(strcmp(type,"Object1") == 0) {
+			return new Object1;
+		}
+	}
+};
+
+int main()
+{
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+    
+	ObjectFactory* objectFactory;
+	Jordan *btn, *btt, *btk;
+    int a;
+	objectFactory = new Factory;
+
+	btn = objectFactory->createJordan("Object1");
+    cout<<"1 - Äëÿ ââîäó ìàòðèö³ ç ôàéëó"<<endl<<"2 - Äëÿ ââîäó ìàòðèö³ ç êîíñîë³"<<endl;
+    cin>>a;
+    if(a==1){
+            btn -> fromFile();}
+    else if (a==2){
+            btn -> setJordan();}   
+    btn -> doCalculate();
+    cout<<"1 - Äëÿ çàïèñó ó ôàéë"<<endl;
+    cin>>a;
+    if (a==1){
+              btn->inFile();}
+	btk = objectFactory->createJordan("Object2");
+    cout<<"1 - Äëÿ ââîäó ìàòðèö³ ç ôàéëó"<<endl<<"2 - Äëÿ ââîäó ìàòðèö³ ç êîíñîë³"<<endl;
+    cin>>a;
+    if(a==1){
+            btk -> fromFile();}
+    else if(a==2){
+            btk -> setJordan();}
+	btk -> doCalculate();
+	cout<<"1 - Äëÿ çàïèñó ó ôàéë"<<endl;
+    cin>>a;
+    if (a==1){
+              btk->inFile();}
+              
+    delete 	objectFactory;
+    
+	return 0;
+	
 }
