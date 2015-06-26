@@ -21,13 +21,13 @@ int main()
 	Jordan *btn, *btt;
     int a=0;
 	objectFactory = new Factory;
-	cout<<"1-Ââ³ä äàíèõ ç ôàéëó input.txt"<<endl;
-	cout<<"2-Ââ³ä äàíèõ ç ôàéëó input2.txt"<<endl;
-	cout<<"3-Ââ³ä äàíèõ ç êîíñîë³ ç³ çáåðåæåííÿì ó ôàéë³ result.txt"<<endl;
-	cout<<"4-Ââ³ä äàíèõ ç êîíñîë³ ç³ çáåðåæåííÿì ó ôàéë³ result2.txt"<<endl;
-	cout<<"5-Âèâ³ä ðåçóëüòàòó ç ôàéëó result.txt"<<endl;
-	cout<<"6-Âèâ³ä ðåçóëüòàòó ç ôàéëó result2.txt"<<endl;
-	cout<<"0-Âèõ³ä ç ïðîãðàìè"<<endl;
+	cout<<"1-Ð’Ð²Ñ–Ð´ Ð´Ð°Ð½Ð¸Ñ… Ð· Ñ„Ð°Ð¹Ð»Ñƒ input.txt"<<endl;
+	cout<<"2-Ð’Ð²Ñ–Ð´ Ð´Ð°Ð½Ð¸Ñ… Ð· Ñ„Ð°Ð¹Ð»Ñƒ input2.txt"<<endl;
+	cout<<"3-Ð’Ð²Ñ–Ð´ Ð´Ð°Ð½Ð¸Ñ… Ð· ÐºÐ¾Ð½ÑÐ¾Ð»Ñ– Ð·Ñ– Ð·Ð±ÐµÑ€ÐµÐ¶ÐµÐ½Ð½ÑÐ¼ Ñƒ Ñ„Ð°Ð¹Ð»Ñ– result.txt"<<endl;
+	cout<<"4-Ð’Ð²Ñ–Ð´ Ð´Ð°Ð½Ð¸Ñ… Ð· ÐºÐ¾Ð½ÑÐ¾Ð»Ñ– Ð·Ñ– Ð·Ð±ÐµÑ€ÐµÐ¶ÐµÐ½Ð½ÑÐ¼ Ñƒ Ñ„Ð°Ð¹Ð»Ñ– result2.txt"<<endl;
+	cout<<"5-Ð’Ð¸Ð²Ñ–Ð´ Ñ€ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚Ñƒ Ð· Ñ„Ð°Ð¹Ð»Ñƒ result.txt"<<endl;
+	cout<<"6-Ð’Ð¸Ð²Ñ–Ð´ Ñ€ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚Ñƒ Ð· Ñ„Ð°Ð¹Ð»Ñƒ result2.txt"<<endl;
+	cout<<"0-Ð’Ð¸Ñ…Ñ–Ð´ Ð· Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¸"<<endl;
 	btn = objectFactory->createJordan("Object1");
 	btt = objectFactory->createJordan("Object2");
 cin>>a;
@@ -61,16 +61,16 @@ ClearScreen();
             btt->printFile();
            	break;
             default:
-            cout<<"Çðîá³òü âèá³ð ùå ðàç"<<endl;
+            cout<<"Ð—Ñ€Ð¾Ð±Ñ–Ñ‚ÑŒ Ð²Ð¸Ð±Ñ–Ñ€ Ñ‰Ðµ Ñ€Ð°Ð·"<<endl;
             break;
                     }
-    cout<<"1-Ââ³ä äàíèõ ç ôàéëó input.txt"<<endl;
-	cout<<"2-Ââ³ä äàíèõ ç ôàéëó input2.txt"<<endl;
-	cout<<"3-Ââ³ä äàíèõ ç êîíñîë³ ç³ çáåðåæåííÿì ó ôàéë³ result.txt"<<endl;
-	cout<<"4-Ââ³ä äàíèõ ç êîíñîë³ ç³ çáåðåæåííÿì ó ôàéë³ result2.txt"<<endl;
-	cout<<"5-Âèâ³ä ðåçóëüòàòó ç ôàéëó result.txt"<<endl;
-	cout<<"6-Âèâ³ä ðåçóëüòàòó ç ôàéëó result2.txt"<<endl;
-	cout<<"0-Âèõ³ä ç ïðîãðàìè"<<endl;
+    cout<<"1-Ð’Ð²Ñ–Ð´ Ð´Ð°Ð½Ð¸Ñ… Ð· Ñ„Ð°Ð¹Ð»Ñƒ input.txt"<<endl;
+	cout<<"2-Ð’Ð²Ñ–Ð´ Ð´Ð°Ð½Ð¸Ñ… Ð· Ñ„Ð°Ð¹Ð»Ñƒ input2.txt"<<endl;
+	cout<<"3-Ð’Ð²Ñ–Ð´ Ð´Ð°Ð½Ð¸Ñ… Ð· ÐºÐ¾Ð½ÑÐ¾Ð»Ñ– Ð·Ñ– Ð·Ð±ÐµÑ€ÐµÐ¶ÐµÐ½Ð½ÑÐ¼ Ñƒ Ñ„Ð°Ð¹Ð»Ñ– result.txt"<<endl;
+	cout<<"4-Ð’Ð²Ñ–Ð´ Ð´Ð°Ð½Ð¸Ñ… Ð· ÐºÐ¾Ð½ÑÐ¾Ð»Ñ– Ð·Ñ– Ð·Ð±ÐµÑ€ÐµÐ¶ÐµÐ½Ð½ÑÐ¼ Ñƒ Ñ„Ð°Ð¹Ð»Ñ– result2.txt"<<endl;
+	cout<<"5-Ð’Ð¸Ð²Ñ–Ð´ Ñ€ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚Ñƒ Ð· Ñ„Ð°Ð¹Ð»Ñƒ result.txt"<<endl;
+	cout<<"6-Ð’Ð¸Ð²Ñ–Ð´ Ñ€ÐµÐ·ÑƒÐ»ÑŒÑ‚Ð°Ñ‚Ñƒ Ð· Ñ„Ð°Ð¹Ð»Ñƒ result2.txt"<<endl;
+	cout<<"0-Ð’Ð¸Ñ…Ñ–Ð´ Ð· Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¸"<<endl;
 	cin>>a;
 				}
     delete 	objectFactory;
