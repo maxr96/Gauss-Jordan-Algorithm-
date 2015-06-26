@@ -12,17 +12,17 @@ class Jordan : public File{
 
 void Jordan::setJordan()
    {
-        cout<<"Ââåä³òü ê³ëüê³ñòü ð³âíÿíü : "; 
+        cout<<"Ð’Ð²ÐµÐ´Ñ–Ñ‚ÑŒ ÐºÑ–Ð»ÑŒÐºÑ–ÑÑ‚ÑŒ Ñ€Ñ–Ð²Ð½ÑÐ½ÑŒ : "; 
         cin>>NEQ;
         N1=NEQ+1;
-        cout<<"ÂÂ²Ä "<<endl;
+        cout<<"Ð’Ð’Ð†Ð” "<<endl;
            A=new float *[NEQ];
            for (int i = 0; i<NEQ; i++)
               A[i] = new float [N1];
         for(int i=0;i<NEQ;i++)  
            for(int j=0;j<N1;j++)
            {
-            cout<<"Ââåä³òü åëåìåíò ìàòðèö³["<<i+1<<"]"<<"["<<j+1<<"]=";
+            cout<<"Ð’Ð²ÐµÐ´Ñ–Ñ‚ÑŒ ÐµÐ»ÐµÐ¼ÐµÐ½Ñ‚ Ð¼Ð°Ñ‚Ñ€Ð¸Ñ†Ñ–["<<i+1<<"]"<<"["<<j+1<<"]=";
             cin>>A[i][j];
            }
    }
@@ -33,8 +33,8 @@ void Jordan::setJordan()
       {
          if(A[N][N]==0)
                    {
-                       cout<<endl<<"*** ÍÓËÜÎÂÈÉ ÅËÅÌÅÍÒ ÍÀ Ä²ÀÃÎÍÀË² ";
-                         cout<<N<<" Ï²Ä ×ÀÑ ÂÈÊÎÍÀÍÍß***"<<endl;
+                       cout<<endl<<"*** ÐÐ£Ð›Ð¬ÐžÐ’Ð˜Ð™ Ð•Ð›Ð•ÐœÐ•ÐÐ¢ ÐÐ Ð”Ð†ÐÐ“ÐžÐÐÐ›Ð† ";
+                         cout<<N<<" ÐŸÐ†Ð” Ð§ÐÐ¡ Ð’Ð˜ÐšÐžÐÐÐÐÐ¯***"<<endl;
                          exit(0);
                          
                    }
@@ -57,7 +57,7 @@ void Jordan::setJordan()
                   }
           A[N][N]=1;
        }
-    cout<<endl<<"ÂÈÂ²Ä"<<endl<<endl;
+    cout<<endl<<"Ð’Ð˜Ð’Ð†Ð”"<<endl<<endl;
       for(int i=0;i<NEQ;i++){
         for(int j=N1-1;j<N1;j++){
           cout<<setprecision(2)<<setw(5)<<"x"<<i+1<<"="<<A[i][j];}
