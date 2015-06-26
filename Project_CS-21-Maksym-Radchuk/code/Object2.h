@@ -17,7 +17,7 @@ void Object2::printFile(){
     int i=0;
 	if (in == 0)
     {
-        cout << "Ïîìèëêà! Ôàéë íå çíàäåíî!" << endl;
+        cout << "ÐŸÐ¾Ð¼Ð¸Ð»ÐºÐ°! Ð¤Ð°Ð¹Ð» Ð½Ðµ Ð·Ð½Ð°Ð´ÐµÐ½Ð¾!" << endl;
     }
     while (!in.eof( )) {
     	 in.getline(buff[i],sizeof(buff)); 
@@ -32,7 +32,7 @@ void Object2::fromFile(){
         ifstream in("input2.txt");
     if (in == 0)
     {
-        cout << "Ïîìèëêà! Ôàéë íå çíàäåíî!" << endl;
+        cout << "ÐŸÐ¾Ð¼Ð¸Ð»ÐºÐ°! Ð¤Ð°Ð¹Ð» Ð½Ðµ Ð·Ð½Ð°Ð´ÐµÐ½Ð¾!" << endl;
     }
     in >> NEQ;
     N1=NEQ+1;
@@ -58,4 +58,3 @@ void Object2::inFile(){
           fout<<setprecision(2)<<setw(5)<<"x"<<i+1<<"="<<A[i][j];}
              fout<<endl;}
              fout.close();}
-
